@@ -20,20 +20,9 @@ const App = () => {
 
     // Find the first word that needs correction
     for (let word of words) {
-      // Convert to lowercase for checking
       const lowercaseWord = word.toLowerCase();
-
-      // Check if word exists in dictionary
       if (customDictionary[lowercaseWord]) {
-        // If the original word started with uppercase, capitalize the suggestion
-        if (word[0] === word[0].toUpperCase()) {
-          const correctedWord = customDictionary[lowercaseWord];
-          setSuggestedText(
-            correctedWord.charAt(0).toUpperCase() + correctedWord.slice(1)
-          );
-        } else {
-          setSuggestedText(customDictionary[lowercaseWord]);
-        }
+        setSuggestedText(customDictionary[lowercaseWord]);
         return;
       }
     }
